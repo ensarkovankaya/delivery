@@ -7,6 +7,9 @@ class Cuisine(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Dinner(models.Model):
     name = models.CharField(max_length=255)
@@ -15,6 +18,9 @@ class Dinner(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Restaurant(models.Model):
     name = models.CharField(max_length=255)
@@ -22,3 +28,6 @@ class Restaurant(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
