@@ -64,7 +64,7 @@ WSGI_APPLICATION = 'yemeksepeti.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'ENGINE': 'django.db.backends.postgresql',
         'HOST': env.str("DB_HOST"),
         'NAME': env.str("DB_NAME"),
         'USER': env.str("DB_USER"),
