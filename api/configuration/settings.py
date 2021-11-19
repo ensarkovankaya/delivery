@@ -1,3 +1,5 @@
+import os.path
+
 import environ
 from pathlib import Path
 
@@ -114,3 +116,5 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+DUMMY_FILE = env.str("DUMMY_FILE", default=os.path.join(BASE_DIR, "delivery", "management", "commands", "dummy.json"))
