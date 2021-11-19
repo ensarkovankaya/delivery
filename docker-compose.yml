@@ -1,0 +1,15 @@
+version: '3.2'
+
+services:
+  api:
+    build:
+      context: api
+    container_name: yemeksepeti-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+  db:
+    image: postgres
+    container_name: yemeksepeti-db
