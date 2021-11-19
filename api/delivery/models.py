@@ -1,4 +1,3 @@
-from django.core.validators import MinValueValidator
 from django.db import models
 
 
@@ -12,9 +11,6 @@ class Cuisine(models.Model):
 class Dinner(models.Model):
     name = models.CharField(max_length=255)
     category = models.ForeignKey(to=Cuisine, on_delete=models.CASCADE)
-
-    price = models.DecimalField(max_digits=5, decimal_places=2, validators=[MinValueValidator(0)])
-    currency = models.CharField(max_length=3, choices=[('TRY', 'TRY'), ('USD', 'USD'), ('EUR', 'EUR')])
 
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
