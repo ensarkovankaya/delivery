@@ -1,5 +1,6 @@
-FROM python:3.10.0-buster
+FROM python:3.10
 
+ENV PYTHONUNBUFFERED 1
 WORKDIR /usr/src/app
 
 COPY requirements.txt ./
@@ -9,4 +10,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD ["python", "manage.py", "runserver", ":8080"]
+CMD ["python", "manage.py", "runserver", "8080"]
