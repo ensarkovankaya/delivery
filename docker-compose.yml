@@ -6,10 +6,11 @@ services:
       context: api
     container_name: delivery-api
     restart: unless-stopped
+    volumes:
+      - ./api:/usr/src/app
     environment:
       - DEBUG=true
       - SECRET=top-secret-key
-      - ALLOWED_HOSTS=localhost
       - DB_NAME=postgres
       - DB_USER=postgres
       - DB_PASSWORD=postgres
