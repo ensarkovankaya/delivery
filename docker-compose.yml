@@ -4,7 +4,7 @@ services:
   api:
     build:
       context: api
-    container_name: yemeksepeti-api
+    container_name: delivery-api
     restart: unless-stopped
     environment:
       - DEBUG=true
@@ -22,7 +22,7 @@ services:
 
   db:
     image: postgres:14.1
-    container_name: yemeksepeti-db
+    container_name: delivery-db
     restart: unless-stopped
     environment:
       - POSTGRES_PASSWORD=postgres

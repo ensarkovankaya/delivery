@@ -1,4 +1,4 @@
-# Yemeksepeti API
+# Delivery API
 
 ## Environment Variables
 
@@ -20,7 +20,7 @@ After application started in background with
 docker-compose up -d
 
 # Optionally you can check if container running by following command
-docker ps |grep yemeksepeti-api
+docker ps |grep delivery-api
 ```
 
 Run below command to apply migrations

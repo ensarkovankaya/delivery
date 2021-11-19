@@ -1,6 +1,5 @@
 import django.core.validators
 from django.db import migrations, models
-import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
@@ -31,7 +30,7 @@ class Migration(migrations.Migration):
                 ('currency', models.CharField(choices=[('TRY', 'TRY'), ('USD', 'USD'), ('EUR', 'EUR')], max_length=3)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('modified_at', models.DateTimeField(auto_now=True)),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='yemeksepeti.cuisine')),
+                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='delivery.cuisine')),
             ],
         ),
         migrations.CreateModel(
@@ -41,7 +40,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=255)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('modified_at', models.DateTimeField(auto_now=True)),
-                ('menu', models.ManyToManyField(to='yemeksepeti.Dinner')),
+                ('menu', models.ManyToManyField(to='delivery.Dinner')),
             ],
         ),
     ]

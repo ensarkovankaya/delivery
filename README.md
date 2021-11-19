@@ -1,1 +1,1 @@
-# Yemeksepeti API
+# Simple Delivery App 
