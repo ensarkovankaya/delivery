@@ -25,5 +25,10 @@ services:
     image: postgres:14.1
     container_name: delivery-db
     restart: unless-stopped
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
     environment:
       - POSTGRES_PASSWORD=postgres
+
+volumes:
+  pgdata:
