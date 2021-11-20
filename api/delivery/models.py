@@ -11,7 +11,7 @@ class Cuisine(models.Model):
         return self.name
 
 
-class Dinner(models.Model):
+class MenuItem(models.Model):
     name = models.CharField(max_length=255)
     category = models.ForeignKey(to=Cuisine, on_delete=models.CASCADE)
 
@@ -24,7 +24,7 @@ class Dinner(models.Model):
 
 class Restaurant(models.Model):
     name = models.CharField(max_length=255)
-    menu = models.ManyToManyField(to=Dinner)
+    menu = models.ManyToManyField(to=MenuItem)
 
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
