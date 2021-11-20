@@ -8,7 +8,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('delivery', '0001_initial'),
+        ('restaurant', '0001_initial'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('count', models.PositiveSmallIntegerField(validators=[MinValueValidator(1)])),
-                ('menu_item', models.ForeignKey(on_delete=CASCADE, to='delivery.menuitem')),
+                ('menu_item', models.ForeignKey(on_delete=CASCADE, to='restaurant.menuitem')),
             ],
         ),
         migrations.CreateModel(
@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('modified_at', models.DateTimeField(auto_now=True)),
                 ('items', models.ManyToManyField(to='order.OrderItem')),
-                ('restaurant', models.ForeignKey(on_delete=CASCADE, to='delivery.restaurant')),
+                ('restaurant', models.ForeignKey(on_delete=CASCADE, to='restaurant.restaurant')),
                 ('user', models.ForeignKey(on_delete=CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),

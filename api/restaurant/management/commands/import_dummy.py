@@ -3,8 +3,6 @@ import json
 from django.core.management.base import BaseCommand, CommandError
 from django.conf import settings
 
-from delivery.models import Cuisine, Dinner, Restaurant
-
 
 class Command(BaseCommand):
     help = 'Imports dummy data to database'

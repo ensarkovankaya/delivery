@@ -24,7 +24,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=255)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('modified_at', models.DateTimeField(auto_now=True)),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='delivery.cuisine')),
+                ('category', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='restaurant.cuisine')),
             ],
         ),
         migrations.CreateModel(
@@ -34,7 +34,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=255)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('modified_at', models.DateTimeField(auto_now=True)),
-                ('menu', models.ManyToManyField(to='delivery.MenuItem')),
+                ('menu', models.ManyToManyField(to='restaurant.MenuItem')),
             ],
         ),
     ]

@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 from django.core.validators import MinValueValidator
 from django.db import models
 
-from delivery.models import Restaurant, MenuItem
+from restaurant.models import Restaurant, MenuItem
 
 
 class OrderStatus(IntEnum):

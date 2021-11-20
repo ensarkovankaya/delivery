@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from delivery.models import Cuisine, MenuItem, Restaurant
+from restaurant.models import Cuisine, MenuItem, Restaurant
 
 
 class CuisineAdmin(admin.ModelAdmin):
