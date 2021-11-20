@@ -5,18 +5,18 @@ from restaurant.models import Cuisine, MenuItem, Restaurant
 
 class CuisineAdmin(admin.ModelAdmin):
     search_fields = ('name',)
-    list_display = ('name', 'created_at', 'modified_at')
+    list_display = ('id', 'name', 'created_at', 'modified_at')
 
 
 class MenuItemAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     list_filter = ('category',)
-    list_display = ('name', 'category', 'created_at', 'modified_at')
+    list_display = ('id', 'name', 'category', 'created_at', 'modified_at')
 
 
 class RestaurantAdmin(admin.ModelAdmin):
     search_fields = ('name',)
-    list_display = ('name', 'created_at', 'modified_at')
+    list_display = ('id', 'name', 'created_at', 'modified_at')
     filter_horizontal = ('menu',)
 
 

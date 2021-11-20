@@ -5,7 +5,7 @@ from order.models import Order, OrderItem
 
 class OrderAdmin(admin.ModelAdmin):
     search_fields = ('number',)
-    list_display = ('number', 'status', 'user', 'restaurant')
+    list_display = ('id', 'number', 'status', 'user', 'restaurant')
     filter_horizontal = ('items',)
 
 
