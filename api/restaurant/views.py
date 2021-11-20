@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework import generics
 
-# Create your views here.
+from restaurant.models import Restaurant
+from restaurant.serializers import RestaurantSerializer
+
+
+class RestaurantListView(generics.ListAPIView):
+    serializer_class = RestaurantSerializer
+    queryset = Restaurant.objects.all()
