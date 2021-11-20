@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from delivery.models import Cuisine, MenuItem, Restaurant
+from delivery.models import Cuisine, MenuItem, Restaurant, Order
 
 
 class CuisineAdmin(admin.ModelAdmin):
@@ -20,6 +20,14 @@ class RestaurantAdmin(admin.ModelAdmin):
     filter_horizontal = ('menu',)
 
 
+class OrderAdmin(admin.ModelAdmin):
+    search_fields = ('number',)
+    list_filter = ('restaurant',)
+    list_display = ('number', 'user', 'restaurant', 'created_at', 'modified_at')
+    filter_horizontal = ('items', )
+
+
 admin.site.register(Cuisine, CuisineAdmin)
 admin.site.register(MenuItem, MenuItemAdmin)
 admin.site.register(Restaurant, RestaurantAdmin)
+admin.site.register(Order, OrderAdmin)
