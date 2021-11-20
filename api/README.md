@@ -16,7 +16,8 @@
 ## Database Migration
 
 After application started in background with
-```
+
+```shell
 docker-compose up -d
 
 # Optionally you can check if container running by following command
@@ -24,16 +25,26 @@ docker ps |grep delivery-api
 ```
 
 Run below command to apply migrations
-```
+
+```shell
 docker-compose exec api python manage.py migrate
 ```
 
 ## Creating Admin User
 
-Django comes with admin interface, to access it you can go to http://localhost:8080/admin.
-But first you need to create a admin user.
+Django comes with admin interface, to access it you can go to http://localhost:8080/admin. But first you need to create
+an admin user.
 
 Run bellow command and fill prompted fields to create your first admin user
-```
+
+```shell
 docker-compose exec api python manage.py createsuperuser
+```
+
+## Importing Dummy Data
+
+Run bellow command to populate database with some dummy data.
+
+```shell
+docker-compose exec api python manage.py loaddata dummy.json
 ```
