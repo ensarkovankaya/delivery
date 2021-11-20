@@ -22,6 +22,9 @@ class OrderItem(models.Model):
     count = models.PositiveSmallIntegerField(validators=[MinValueValidator(1)])
     menu_item = models.ForeignKey(to=MenuItem, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f"{self.menu_item} ( x{self.count} )"
+
 
 class Order(models.Model):
     number = models.CharField(max_length=5)
