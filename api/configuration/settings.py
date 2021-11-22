@@ -125,5 +125,21 @@ REST_FRAMEWORK = {
     ]
 }
 
+# Redis
 REDIS_HOST = env.str('REDIS_HOST', default='redis')
 REDIS_PORT = env.int('REDIS_PORT', default=6379)
+
+# Logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'WARNING',
+    },
+}
