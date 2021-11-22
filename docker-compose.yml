@@ -8,16 +8,24 @@ services:
     restart: unless-stopped
     volumes:
       - ./api:/usr/src/app
-    environment:
-      - DEBUG=true
-      - SECRET=top-secret-key
-      - DB_NAME=postgres
-      - DB_USER=postgres
-      - DB_PASSWORD=postgres
-      - DB_PORT=5432
-      - DB_HOST=db
+    env_file:
+      - .env
     ports:
       - "8080:8080"
+    depends_on:
+      - db
+      - redis
+
+  consumer:
+    build:
+      context: api
+    container_name: delivery-consumer
+    restart: unless-stopped
+    command: python manage.py startconsumers
+    volumes:
+      - ./api:/usr/src/app
+    env_file:
+      - .env
     depends_on:
       - db
       - redis

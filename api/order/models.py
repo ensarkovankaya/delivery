@@ -3,8 +3,11 @@ from enum import IntEnum
 from django.contrib.auth import get_user_model
 from django.core.validators import MinValueValidator
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 from restaurant.models import Restaurant, MenuItem
+from utils.redis import Channel, pub_sub
 
 
 class OrderStatus(IntEnum):
@@ -38,3 +41,11 @@ class Order(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+
+@receiver(post_save, sender=Order, dispatch_uid="order")
+def publish_order(sender, instance, created, **kwargs):
+    if created:
+        pub_sub.publish(Channel.ORDER_CREATED, instance.id)
+    else:
+        pub_sub.publish(Channel.ORDER_UPDATED, instance.id)
