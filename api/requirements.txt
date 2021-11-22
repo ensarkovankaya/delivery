@@ -2,3 +2,4 @@ django==3.2.9
 django-environ==0.8.1
 djangorestframework==3.12.4
 psycopg2==2.9.2
+redis==4.0.2
