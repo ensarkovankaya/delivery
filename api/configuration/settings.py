@@ -118,4 +118,9 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-DUMMY_FILE = env.str("DUMMY_FILE", default=os.path.join(BASE_DIR, "delivery", "management", "commands", "dummy.json"))
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
