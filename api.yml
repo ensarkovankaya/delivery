@@ -1,5 +1,5 @@
 openapi: 3.0.0
-servers: [ ]
+servers: []
 info:
   description: This document explains how to list available restaurants and create an order.
   version: "1.0.0"
@@ -83,6 +83,10 @@ paths:
         '500':
           description: Internal server error
 components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
   schemas:
     CreateOrderPayload:
       type: object
@@ -191,7 +195,6 @@ components:
           type: string
           example: 'İskender'
         category:
-          type: object
           $ref: '#/components/schemas/Category'
         created_at:
           type: string
@@ -224,3 +227,5 @@ components:
           type: string
           format: datetime
           example: '2021-11-20T00:10:17.843000Z'
+security:
+  - basicAuth: []
