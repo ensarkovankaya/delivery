@@ -1,0 +1,18 @@
+[
+  {
+    "model": "order.orderitem",
+    "pk": 1,
+    "fields": {
+      "count": 2,
+      "menu_item": 1
+    }
+  },
+  {
+    "model": "order.orderitem",
+    "pk": 2,
+    "fields": {
+      "count": 1,
+      "menu_item": 2
+    }
+  }
+]
