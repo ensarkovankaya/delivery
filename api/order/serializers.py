@@ -18,8 +18,8 @@ class OrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order
-        fields = ['id', 'number', 'status', 'user', 'restaurant', 'items', 'created_at', 'modified_at']
-        read_only_fields = ['id', 'number', 'status', 'user', 'created_at', 'modified_at']
+        fields = ['id', 'status', 'user', 'restaurant', 'items', 'created_at', 'modified_at']
+        read_only_fields = ['id', 'status', 'user', 'created_at', 'modified_at']
 
     def create(self, validated_data: dict):
         restaurant: Restaurant = validated_data['restaurant']

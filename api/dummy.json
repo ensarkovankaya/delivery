@@ -1353,7 +1353,6 @@
     "model": "order.order",
     "pk": 1,
     "fields": {
-      "number": "O_123",
       "status": 1,
       "user": 4,
       "restaurant": 1,
@@ -1369,7 +1368,6 @@
     "model": "order.order",
     "pk": 2,
     "fields": {
-      "number": "O_137",
       "status": 4,
       "user": 4,
       "restaurant": 2,
@@ -1384,7 +1382,6 @@
     "model": "order.order",
     "pk": 3,
     "fields": {
-      "number": "R_453",
       "status": 2,
       "user": 2,
       "restaurant": 3,
@@ -1400,7 +1397,6 @@
     "model": "order.order",
     "pk": 4,
     "fields": {
-      "number": "O_789",
       "status": 3,
       "user": 3,
       "restaurant": 3,

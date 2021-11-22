@@ -25,7 +25,6 @@ class Migration(migrations.Migration):
             name='Order',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('number', models.CharField(max_length=5)),
                 (
                     'status',
                     models.PositiveSmallIntegerField(

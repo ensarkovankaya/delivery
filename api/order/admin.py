@@ -4,8 +4,8 @@ from order.models import Order, OrderItem
 
 
 class OrderAdmin(admin.ModelAdmin):
-    search_fields = ('number',)
-    list_display = ('id', 'number', 'status', 'user', 'restaurant')
+    search_fields = ('user',)
+    list_display = ('id', 'status', 'user', 'restaurant')
     filter_horizontal = ('items',)
 
 

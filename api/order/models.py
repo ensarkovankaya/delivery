@@ -27,7 +27,6 @@ class OrderItem(models.Model):
 
 
 class Order(models.Model):
-    number = models.CharField(max_length=5)
     status = models.PositiveSmallIntegerField(choices=OrderStatus.choices())
 
     user = models.ForeignKey(to=get_user_model(), on_delete=models.CASCADE)
@@ -38,4 +37,4 @@ class Order(models.Model):
     modified_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.number
+        return str(self.id)
