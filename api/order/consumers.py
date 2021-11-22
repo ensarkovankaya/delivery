@@ -17,7 +17,8 @@ def consume_new_order(message: dict):
     try:
         order = Order.objects.get(id=order_id)
     except Order.DoesNotExist:
-        return logger.error(f'Order not found with id: {order_id}')
+        logger.error(f'Order not found with id: {order_id}')
+        raise
 
     for status in [OrderStatus.PREPARING, OrderStatus.ON_THE_WAY, OrderStatus.DELIVERED]:
         time.sleep(random.randint(3, 5))  # wait between 3 to 5 second
