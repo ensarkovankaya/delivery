@@ -7,7 +7,7 @@ from utils.redis import Channel
 
 
 class ConsumeNewOrderTest(TestCase):
-    fixtures = ['cuisine', 'menu_item', 'restaurant', 'order_item', 'order', 'user']
+    fixtures = ['category', 'menu_item', 'restaurant', 'order_item', 'order', 'user']
     NONE_EXISTS_ORDER_ID = 3
 
     def test_order_not_found(self):

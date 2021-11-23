@@ -8,7 +8,7 @@ from restaurant.models import Restaurant, MenuItem
 
 
 class OrderCreateTest(TestCase):
-    fixtures = ['cuisine', 'menu_item', 'restaurant', 'order_item', 'order', 'user']
+    fixtures = ['category', 'menu_item', 'restaurant', 'order_item', 'order', 'user']
     ENDPOINT = reverse('order:list-create')
     FILED_REQUIRED_MESSAGE = 'This field is required.'
     ITEM_NOT_PROVIDED_MESSAGE = 'At least one order item should be provided'

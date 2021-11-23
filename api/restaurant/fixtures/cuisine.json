@@ -1,6 +1,6 @@
 [
   {
-    "model": "restaurant.cuisine",
+    "model": "restaurant.category",
     "pk": 1,
     "fields": {
       "name": "Döner/Kebap",

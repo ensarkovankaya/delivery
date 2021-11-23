@@ -1,17 +1,17 @@
-from restaurant.models import Restaurant, MenuItem, Cuisine
+from restaurant.models import Restaurant, MenuItem, Category
 
 from rest_framework import serializers
 
 
-class CuisineSerializer(serializers.ModelSerializer):
+class CategorySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Cuisine
+        model = Category
         fields = ['id', 'name', 'created_at', 'modified_at']
         read_only_fields = ['created_at', 'modified_at']
 
 
 class MenuItemSerializer(serializers.ModelSerializer):
-    category = CuisineSerializer()
+    category = CategorySerializer()
 
     class Meta:
         model = MenuItem

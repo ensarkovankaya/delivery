@@ -3,11 +3,11 @@ from http import HTTPStatus
 from django.test import TestCase
 from django.urls import reverse
 
-from restaurant.models import Restaurant, MenuItem, Cuisine
+from restaurant.models import Restaurant, MenuItem, Category
 
 
 class RestaurantListViewTest(TestCase):
-    fixtures = ['cuisine', 'menu_item', 'restaurant']
+    fixtures = ['category', 'menu_item', 'restaurant']
     ENDPOINT = reverse('restaurant:list')
 
     def test_list_restaurants(self):
@@ -40,14 +40,14 @@ class RestaurantListViewTest(TestCase):
 
         menu_item = MenuItem.objects.get(id=item_data['id'])
         self.assertEqual(menu_item.name, item_data['name'])
-        self.validate_cuisine(cuisine_data=item_data['category'])
+        self.validate_category(category_data=item_data['category'])
 
-    def validate_cuisine(self, cuisine_data):
-        self.assertIs(type(cuisine_data), dict, msg='invalid cuisine data type')
-        self._assert_fields(fields=['id', 'name', 'created_at', 'modified_at'], data=cuisine_data)
+    def validate_category(self, category_data):
+        self.assertIs(type(category_data), dict, msg='invalid category data type')
+        self._assert_fields(fields=['id', 'name', 'created_at', 'modified_at'], data=category_data)
 
-        cuisine = Cuisine.objects.get(id=cuisine_data['id'])
-        self.assertEqual(cuisine.name, cuisine_data['name'])
+        category = Category.objects.get(id=category_data['id'])
+        self.assertEqual(category.name, category_data['name'])
 
     def _assert_fields(self, fields, data: dict):
         for field in fields:

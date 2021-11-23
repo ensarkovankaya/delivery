@@ -1,9 +1,9 @@
 from django.contrib import admin
 
-from restaurant.models import Cuisine, MenuItem, Restaurant
+from restaurant.models import Category, MenuItem, Restaurant
 
 
-class CuisineAdmin(admin.ModelAdmin):
+class CategoryAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     list_display = ('id', 'name', 'created_at', 'modified_at')
 
@@ -20,6 +20,6 @@ class RestaurantAdmin(admin.ModelAdmin):
     filter_horizontal = ('menu',)
 
 
-admin.site.register(Cuisine, CuisineAdmin)
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(MenuItem, MenuItemAdmin)
 admin.site.register(Restaurant, RestaurantAdmin)
