@@ -51,7 +51,7 @@ Run bellow command to populate database with some dummy data.
 docker-compose exec api python manage.py loaddata dummy.json
 ```
 
-After this import you can access admin interface with user `admin@admin.com` and password `asd12345678`
+After this import you can access admin interface with user `admin@admin.com` and password `12345678`
 
 ## API
 
