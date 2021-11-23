@@ -7,6 +7,45 @@ Simple food order application
 You need to have [docker](https://www.docker.com) and [docker-compose](https://docs.docker.com/compose/install/) 
 installed in your system to deploy this project.
 
+## Folder Structure
+
+```
+├── README.md                             # you are reading this :)
+├── .env                                  # environment variables used by docker-compse.yml
+├── api.yml                               # API endpoint documentation
+├── docker-compose.yml                    # docker service definitions
+└── api                                   # application folder
+    ├── Dockerfile
+    ├── requirements.txt                  # python package requirements
+    ├── configuration                     # includes django settings and url definitions
+    ├── dummy.json                        # dummy data for populating database 
+    ├── order                             # includes order related views and models
+    │   ├── consumers.py                  # includes order consumers
+    │   ├── management
+    │   │   └── commands
+    │   │       └── startconsumers.py     # this command starts consumers for listening pub-sub events
+    ├── restaurant                        # includes restaurnat related views and models
+    └── utils
+        └── redis.py                      # includes client for pub-sub operations
+```
+
+## Environment Variables
+
+For development you dont need to change environment variables.
+
+| Name          | Default   | Required | Description                                                                                     |
+|---------------|-----------|:--------:|-------------------------------------------------------------------------------------------------|
+| DEBUG         | false     |          | If true application will start in debug mode                                                    |
+| SECRET        |           | X        | Django SECRET_KEY. This variable used for cryptography related operations like password hashing |
+| ALLOWED_HOSTS | localhost |          | Comma separated list of domain names to be allowed                                              |
+| DB_NAME       |           | X        | Database name                                                                                   |
+| DB_USER       |           | X        | Database user                                                                                   |
+| DB_PASSWORD   |           | X        | Database password                                                                               |
+| DB_PORT       |           | X        | Database port                                                                                   |
+| DB_HOST       |           | X        | Database host                                                                                   |
+| REDIS_HOST    | redis     | X        | Redis host for pub sub actions                                                                  |
+| REDIS_PORT    | 6379      | X        | Redis port for pub sub actions                                                                  |
+
 ## Installation
 
 This command download and install necessary image and packages.
@@ -53,42 +92,12 @@ docker-compose exec api python manage.py loaddata dummy.json
 
 After this import you can access admin interface with user `admin@admin.com` and password `12345678`
 
-## API
+## API Documentation
 
 To understand api endpoints see `api.yaml` file in root directory.
 
-## Folder Structure
+## Running Linter
 
+```shell
+docker-compose exec api flake8 .
 ```
-├── README.md                             # you are reading this :)
-├── api.yml                               # API endpoint documentation
-├── docker-compose.yml                    # docker service definitions
-└── api                                   # application folder
-    ├── Dockerfile
-    ├── requirements.txt                  # python package requirements
-    ├── configuration                     # includes django settings and url definitions
-    ├── dummy.json                        # dummy data for populating database 
-    ├── order                             # includes order related views and models
-    │   ├── consumers.py                  # includes order consumers
-    │   ├── management
-    │   │   └── commands
-    │   │       └── startconsumers.py     # this command starts consumers for listening pub-sub events
-    ├── restaurant                        # includes restaurnat related views and models
-    └── utils
-        └── redis.py                      # includes client for pub-sub operations
-```
-
-## Environment Variables
-
-| Name          | Default   | Required | Description                                                                                     |
-|---------------|-----------|:--------:|-------------------------------------------------------------------------------------------------|
-| DEBUG         | false     |          | If true application will start in debug mode                                                    |
-| SECRET        |           | X        | Django SECRET_KEY. This variable used for cryptography related operations like password hashing |
-| ALLOWED_HOSTS | localhost |          | Comma separated list of domain names to be allowed                                              |
-| DB_NAME       |           | X        | Database name                                                                                   |
-| DB_USER       |           | X        | Database user                                                                                   |
-| DB_PASSWORD   |           | X        | Database password                                                                               |
-| DB_PORT       |           | X        | Database port                                                                                   |
-| DB_HOST       |           | X        | Database host                                                                                   |
-| REDIS_HOST    | redis     | X        | Redis host for pub sub actions                                                                  |
-| REDIS_PORT    | 6379      | X        | Redis port for pub sub actions                                                                  |
