@@ -1,4 +1,3 @@
-import time
 from django.core.management.base import BaseCommand
 
 from utils.redis import pub_sub

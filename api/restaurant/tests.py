@@ -12,7 +12,7 @@ class RestaurantListViewTest(TestCase):
 
     def test_list_restaurants(self):
         response = self.client.get(self.ENDPOINT)
-        self.assertEqual(response.status_code, HTTPStatus.OK, msg=f'invalid response status code')
+        self.assertEqual(response.status_code, HTTPStatus.OK, msg='invalid response status code')
 
         payload = response.json()
         self.assertIs(type(payload), list, msg='invalid payload type')

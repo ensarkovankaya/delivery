@@ -1,5 +1,3 @@
-import os.path
-
 import environ
 from pathlib import Path
 
