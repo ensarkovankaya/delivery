@@ -1,6 +1,6 @@
 # Delivery Application
 
-Simple food order application
+Example food order application
 
 ## Pre Requirements
 
